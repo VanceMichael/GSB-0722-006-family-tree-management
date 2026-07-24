@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from './app/hooks';
-import { loadSampleData, selectAllMembers, selectSelectedMember } from './features/familyTree/familyTreeSlice';
+import { loadSampleData, selectAllMembers } from './features/familyTree/familyTreeSlice';
 import FamilyTreeView from './components/FamilyTreeView';
 import MemberManagement from './components/MemberManagement';
 import RelationshipManagement from './components/RelationshipManagement';
@@ -13,7 +13,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState<Page>('tree');
   const dispatch = useAppDispatch();
   const members = useAppSelector(selectAllMembers);
-  const selectedMember = useAppSelector(selectSelectedMember);
 
   const navItems = [
     { id: 'tree' as Page, label: '家谱树' },
