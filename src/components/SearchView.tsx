@@ -38,23 +38,6 @@ function SearchView() {
     return member ? member.name : '未知成员';
   };
 
-  const getRelationshipLabel = (type: RelationshipType, fromGender: string, toGender: string) => {
-    if (type === 'spouse') {
-      return fromGender === 'male' ? '妻子' : '丈夫';
-    }
-    if (type === 'parent-child') {
-      if (fromGender === 'male') {
-        return toGender === 'male' ? '儿子' : '女儿';
-      } else {
-        return toGender === 'male' ? '儿子' : '女儿';
-      }
-    }
-    if (type === 'sibling') {
-      return toGender === 'male' ? '兄弟' : '姐妹';
-    }
-    return '未知关系';
-  };
-
   const findAllRelations = (memberId: string, visited: Set<string> = new Set()): RelationResult[] => {
     if (visited.has(memberId)) return [];
     visited.add(memberId);
